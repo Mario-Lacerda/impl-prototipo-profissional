@@ -385,6 +385,182 @@ const ChatScreen = () => {
     <!-- Mais projetos... -->
   </div>
 </div>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loja Virtual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Loja Virtual</h1>
+  </header>
+  <main>
+    <section class="products">
+      <h2>Produtos em Destaque</h2>
+      <ul>
+        <li>
+          <img src="product1.jpg" alt="Produto 1">
+          <h3>Produto 1</h3>
+          <p>Descrição do produto 1</p>
+          <a href="product1.html">Detalhes</a>
+        </li>
+        <!-- Mais produtos... -->
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Copyright &copy; 2023 Loja Virtual</p>
+  </footer>
+</body>
+</html>
+Página de detalhes do produto (product1.html):
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loja Virtual - Produto 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Loja Virtual</h1>
+  </header>
+  <main>
+    <section class="product-detail">
+      <img src="product1.jpg" alt="Produto 1">
+      <div class="product-info">
+        <h1>Produto 1</h1>
+        <p>Descrição do produto 1</p>
+        <p>Preço: R$ 100,00</p>
+        <a href="#" class="btn">Comprar</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Copyright &copy; 2023 Loja Virtual</p>
+  </footer>
+</body>
+</html>
+CSS (style.css):
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+main {
+  margin-top: 20px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.products li {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.products li img {
+  width: 100%;
+}
+
+.products li h3 {
+  font-size: 18px;
+}
+
+.products li p {
+  font-size: 14px;
+}
+
+.products li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.product-detail {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-detail img {
+  width: 300px;
+}
+
+.product-detail .product-info {
+  width: 500px;
+}
+
+.product-detail .product-info h1 {
+  font-size: 24px;
+}
+
+.product-detail .product-info p {
+  font-size: 16px;
+}
+
+.product-detail .product-info a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+JavaScript (script.js):
+
+// Código para adicionar produtos ao carrinho de compras
+const addToCartButtons = document.querySelectorAll('.btn');
+
+addToCartButtons.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Código para obter as informações do produto
+    const product = {
+      id: e.target.dataset.id,
+      name: e.target.dataset.name,
+      price: e.target.dataset.price
+    };
+
+    // Código para adicionar o produto ao carrinho de compras
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Código para exibir uma mensagem de sucesso
+    alert('Produto adicionado ao carrinho!');
+  });
+});
+
+
+
 ```
 
 
